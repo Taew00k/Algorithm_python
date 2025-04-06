@@ -1,25 +1,25 @@
-import sys
-input = sys.stdin.readline
 from collections import deque
 
-n,m= map(int, input().split())
-graph = [input() for _ in range(n)]
-visit = [[0] * m for _ in range(n)]
-direction = [(0,-1), (0,1), (-1,0), (1,0)] 
+N,M = map(int, input().split())
+graph = []
 
-def solveMiro():
-    visit[0][0] = 1
+for _ in range(N):
+    miro = list(map(int, input()))
+    graph.append(miro)
+
+def bfs(x,y):
     queue = deque()
-    queue.append((0,0))
+    queue.append((x,y))
+    move_x = [-1, 1, 0, 0]
+    move_y = [0, 0, -1, 1]
     while queue:
-        x,y = queue.popleft()
+        a,b = queue.popleft()
         for i in range(4):
-            nx = x + direction[i][0]
-            ny = y + direction[i][1]
-            
-            if(0<= nx < n and 0 <= ny < m) and graph[nx][ny] == '1' and visit[nx][ny] == 0:
-                visit[nx][ny] = visit[x][y] + 1
-                queue.append((nx, ny))
+            dx = a + move_x[i]
+            dy = b + move_y[i]
+            if 0<=dx<N and 0<=dy<M and graph[dx][dy]==1:
+                queue.append((dx,dy))
+                graph[dx][dy] = graph[a][b] + 1
+    return graph[N-1][M-1]
 
-solveMiro()
-print(visit[n-1][m-1])
+print(bfs(0,0))
