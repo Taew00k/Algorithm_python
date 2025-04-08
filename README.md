@@ -1,2 +1,2 @@
-# Algorithm_python
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# 코테개뿌수자
+코테가 나의 발목을 잡지 않을 그날까지
