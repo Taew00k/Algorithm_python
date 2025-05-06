@@ -1,6 +1,5 @@
 n,m = map(int, input().split())
 result = []
-check = []
 
 def backtracking():
     if len(result) == m:
