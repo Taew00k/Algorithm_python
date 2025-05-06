@@ -1,13 +1,14 @@
-from itertools import permutations
 n,m = map(int, input().split())
-num_list = []
+result = []
+check = []
 
-for i in range(1,n+1):
-    num_list.append(i)
-
-combi = list(permutations(num_list, m))
-
-for j in range(len(combi)):
-    for k in range(m):
-        print(combi[j][k], end=" ")
-    print()
+def backtracking():
+    if len(result) == m:
+        print(" ".join(map(str, result)))
+        return
+    for i in range(1,n+1):
+        if i not in result:
+            result.append(i)
+            backtracking()
+            result.pop()
+backtracking()
