@@ -3,7 +3,6 @@ from collections import deque
 def solution(priorities, location):
     new_priorities = deque()
     count = 0
-    answer = 0
     
     for i in range(len(priorities)):
         new_priorities.append((i, priorities[i]))
