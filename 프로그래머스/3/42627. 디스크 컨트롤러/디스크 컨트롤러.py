@@ -15,7 +15,5 @@ def solution(jobs):
             time += duration
             total += (time - start)
         else:
-            time = jobs[i][0]
-            
+            time = jobs[i][0]      
     return total // n
-        
