@@ -1,16 +1,21 @@
 def solution(name):
-    answer = 0
-    n = len(name)
-    move = n-1
-    
-    for i, char in enumerate(name):
-        answer += min(ord(char) - ord('A'), 26 - (ord(char) - ord('A')))
-        next_idx = i + 1
-        while next_idx < n and name[next_idx] == 'A':
-            next_idx += 1
-        move = min(move, i*2 + n - next_idx)
-        move = min(move, (n-next_idx) * 2 + i)
-
-    answer += move
-    return answer
+    up_alphabet = ['','B','C','D','E','F','G','H','I','J','K','L','M']
+    low_alphabet = ['','Z','Y','X','W','V','U','T','S','R','Q','P','O','N']
+    all_a = "A" * len(name)   
+    total = -1
+    for i in range(len(name)):
+        if name[i] == 'A':
+            continue
+        else:
+            total += 1
+            if name[i] > 'M':
+                for k in range(14):
+                    if name[i] == low_alphabet[k]:
+                        total += k
+            else:
+                for k in range(13):
+                    if name[i] == up_alphabet[k]:
+                        total += k
+    return total
+                
                 
