@@ -23,17 +23,7 @@ def solution(n, edge):
                     visited[i] = visited[a] + 1
                     queue.append(i)
     find_graph(1)
-    max_num = max(visited)
-    new_visit = list(enumerate(visited))
-    for visit in new_visit:
-        if visit[1] == max_num:
+    for visit in visited:
+        if visit == max(visited):
             answer += 1
-    return answer
-        
-        
-                    
-        
-        
-        
-    
-        
+    return answer 
