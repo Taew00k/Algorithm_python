@@ -19,9 +19,7 @@ for _ in range(p):
         right_switch = switch_list[idx:]
         count = 1
         while True:
-            if not left_switch:
-                break
-            if not right_switch:
+            if not left_switch or not right_switch:
                 break
             if not left_switch[-1] == right_switch[0]:
                 break
