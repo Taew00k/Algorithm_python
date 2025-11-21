@@ -3,13 +3,14 @@ import heapq
 def solution(operations):
     op_list = []
     op_reverse = []
-    for operate in operations:
-        a,b = map(str, operate.split())
+    for o in operations:
+        a,b = o.split()
+        b = int(b)
         if a == 'I':
-            heapq.heappush(op_list, int(b))
-            heapq.heappush(op_reverse, -int(b))
+            heapq.heappush(op_list, b)
+            heapq.heappush(op_reverse, -b)
         elif a == 'D':
-            if int(b) == -1:
+            if b == -1:
                 if len(op_list) > 0:
                     x = heapq.heappop(op_list)
                     op_reverse.remove(-x)
